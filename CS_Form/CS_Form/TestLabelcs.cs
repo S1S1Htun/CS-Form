@@ -10,7 +10,7 @@ namespace CS_Form
 {
     class TestLabel : Label
     {
-        //<summary>
+        ///<summary>
         ///コンストラクタ
         ///クラスを生したときに呼び出される
         ///</summary>
@@ -23,6 +23,12 @@ namespace CS_Form
             // ボタンの大きさを指定する
             Size = new Size(width, height);
             
+        }
+
+
+        public void TextUpdate(string str) 
+        {
+            Text = str;
         }
 
     }

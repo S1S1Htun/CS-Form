@@ -11,10 +11,19 @@ namespace CS_Form
 {
     class TestButton : Button
     {
+        Form1 _form1;
+        /// <summary>
+        /// コンストラクタ
+        /// クラスを生成したときに呼び出される
+        /// <summary>
+
+
+            
         int number;
-        public TestButton(int x, int y, int width, int height,int numeric )
+        public TestButton(Form1 form1, int id,int x, int y, int width, int height,int numeric )
         
         {
+            _form1 = form1;
             number = numeric;
             ///<summary>
             ///コンストラ文字を表示させる
@@ -40,14 +49,9 @@ namespace CS_Form
             // ボタン内に
         }
 
-        private void OnClick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Onclick(object sender, EventArgs e)
         {
-            MessageBox.Show(""+number);        
+            _form1.LabelTextUpdate(number.ToString());
         }
 
 
