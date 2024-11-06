@@ -22,6 +22,8 @@ namespace CS_Form
                 TestButton testButton = new TestButton((i%3) * 100, (i/3)*100, 100, 100,i);
                 Controls.Add(testButton);
             }
+            TestLabel testLabel = new TestLabel("ラベル",100, 500, 30, 30);
+            Controls.Add(testLabel);
 
             
 
