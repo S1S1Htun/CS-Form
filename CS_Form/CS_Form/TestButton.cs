@@ -1,59 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Windows.Forms;
 using System.Threading.Tasks;
-using System.Security.Cryptography.X509Certificates;
-
+using System.Windows.Forms;
+using System.Drawing;
 namespace CS_Form
 {
     class TestButton : Button
     {
         Form1 _form1;
-        /// <summary>
-        /// コンストラクタ
-        /// クラスを生成したときに呼び出される
-        /// <summary>
 
+        string globalmessage;
+        int globalnum;
 
-            
-        int number;
-        public TestButton(Form1 form1, int id,int x, int y, int width, int height,int numeric )
-        
+        public TestButton(Form1 form1, int x, int y, int width, int height, int button_num, string text)
         {
+
             _form1 = form1;
-            number = numeric;
-            ///<summary>
-            ///コンストラ文字を表示させる
-            Click += Onclick;
-
-           // ボタン内に文字を表示させる
-            Text = ""+numeric;
-
-           
-            
+            globalnum = button_num;
+            //globalmessage = "" + button_num;
+            Click += OnClick;
+            Text = "" + text;
             Location = new Point(x, y);
-
-           
-            Size = new Size(width,height);
-
-
-            ///クラスを生したとき</summary>
-            //Click event ni On Click 関数を登録
-            //ボタンをクリックしたときに登録した関数を実行します。
-            
-            
-
-            // ボタン内に
+            Size = new Size(width, height);
+            Tag = "button";
         }
-
-        public void Onclick(object sender, EventArgs e)
+        public void OnClick(object sender, EventArgs s)
         {
-            _form1.LabelTextUpdate(number.ToString());
+            string t = _form1.ButtonLabelReplacement(Text);
+
+            Text = t;
+
+
+            //_form1.LabelTextUpdate(globalmessage);
+
+           // _form1.LabelTextUpdate(""+globalnum);
+
+
         }
-
-
     }
 }

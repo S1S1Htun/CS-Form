@@ -14,28 +14,49 @@ namespace CS_Form
     {
         TestLabel _testLabel;
         TestButton _testButton;
+        TestTextBox _testTextBox;
+        string[] strings =
+            {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+            };
         public Form1()
         {
             InitializeComponent();
-
+            
             
 
             for (int i =0;i <10; i ++)
             {
-                _testButton = new TestButton(this,i,(i%5) * 100, (i/5)*100, 100, 100,i);
+                _testButton = new TestButton(this,(i%5) * 100, (i/5)*100, 100, 100,i, strings[i]);
                 Controls.Add(_testButton);
             }
-            _testLabel = new TestLabel("ラベル",10, 300, 100, 500);
+            _testLabel = new TestLabel("ラベル",10, 330, 100, 100);
             Controls.Add(_testLabel);
+
+
+
+            _testTextBox = new TestTextBox("できするとぼっくすです", 10, 300, 500, 100);
+            Controls.Add(_testTextBox);
             //Label label = new Label():
             //label.Location = new Point(30,400);
             //label.Text = "ラベルです。”；
             //Controls.Add(label);
 
         }
-        public void LabelTextUpdate(string str)
+        public string ButtonLabelReplacement(string str)
         {
-            _testLabel.TextUpdate(str);
+            string s = _testTextBox.TextReplacement(str);
+
+            return s;
         }
     }
 }
